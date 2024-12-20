@@ -54,7 +54,7 @@ function move() {
         if (state.x > 574 || state.x < 25) state.dx = -state.dx;
         if (state.y < 25) state.dy = -state.dy;
         if (state.y >= 549 && state.x >= state.cx - 50 && state.x <= state.cx + 50) {
-            state.dy = -1.0 - Math.random() * (3.0 + 1.0 * state.level) * 0.7;
+            state.dy = -1.0 - Math.random() * getSpeed() * 0.5;
             state.dx = getDx(state.dy);
             state.points++;
             if (state.points % 10 == 0) state.level++;
@@ -64,8 +64,12 @@ function move() {
     }
 }
 
+function getSpeed() {
+    return 1.0 + 1.0 * state.level
+}
+
 function getDx(dy) {
-    var speed = 3.0 + 1.0 * state.level;
+    var speed = getSpeed();
     var dx = Math.sqrt(speed * speed - dy * dy);
     if (Math.random < 0.5) dx = -dx;
     return dx;
