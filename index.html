@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="main_container">
+        <header>
+            <div class="logo_wrapper">
+                <img src="./img/logo.png" class="logo">
+            </div>
+            <div class="header_text">
+                Мой интернет-магазин
+            </div>
+        </header>
+        <ul class="menu_list">
+            <li><a href="./index.html">Главная</a></li>
+            <li><a href="./game.html">Игра</a></li>
+        </ul>
+        <main id="main">
+            <div class="card">
+                <div class="card_image_wrapper">
+                    <img src="./img/tv.png" class="card_image">
+                </div>
+
+                <div class="card_name_wrapper">
+                    &laquo;Телевизор&raquo;
+                </div>
+
+                <div class="card_description_wrapper">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error adipisci sunt ea cumque rerum
+                    tempore debitis accusantium aliquam provident dicta praesentium expedita suscipit sit quos nam
+                    quaerat repellat natus vero, deleniti, quam quod asperiores dolorem! Consequuntur hic autem placeat
+                    ipsam corporis, dolore recusandae porro libero laudantium rerum optio deleniti ea!
+                </div>
+
+                <div class="card_price_wrapper">
+                    <b>Цена: </b> 125&nbsp;000 р.
+                </div>
+
+                <a href="https://google.com">
+                    <div class="card_button" id="card_button_1">Купить</div>
+                </a>
+
+
+            </div>
+
+        </main>
+    </div>
+
+    <button onclick="showModal()">Показать модальное окно</button>
+    <div class="test" id="test"></div>
+
+    <div class="modal" id="modal">
+        <div class="button_close" id="button_close">&times;</div>
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
