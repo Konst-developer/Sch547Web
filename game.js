@@ -54,12 +54,17 @@ function move() {
         if (state.x > 574 || state.x < 25) state.dx = -state.dx;
         if (state.y < 25) state.dy = -state.dy;
         if (state.y >= 549 && state.x >= state.cx - 50 && state.x <= state.cx + 50) {
-            state.dy = -1.0 - (Math.random() * 2);
+            state.dy = -1.0 - Math.random() * 2;
             state.dx = -2.0 + Math.random() * 4;
         }
         else if (state.y >= 574)
             state.gameover = true;
     }
+}
+
+function getDx(dy) {
+    var speed = 3.0 + 1.0 * state.level;
+    var dx = Math.sqrt(speed * speed - dy * dy);
 }
 
 ctx.fillStyle = fc;//цвет заливки
