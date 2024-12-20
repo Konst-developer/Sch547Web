@@ -46,12 +46,20 @@ function показатьРакетку(vis) {
 }
 
 function move() {
-    showBall(false);
-    state.x += state.dx;
-    state.y += state.dy;
-    showBall(true);
-    if (state.x > 574 || state.x < 25) state.dx = -state.dx;
-    if (state.y > 574 || state.y < 25) state.dy = -state.dy;
+    if (state.gamestart && !state.gameover) {
+        showBall(false);
+        state.x += state.dx;
+        state.y += state.dy;
+        showBall(true);
+        if (state.x > 574 || state.x < 25) state.dx = -state.dx;
+        if (state.y < 25) state.dy = -state.dy;
+        if (state.y >= 574 && state.x >= state.cx - 50 && state.x <= state.cx + 50) {
+            state.y = -(Math.random() * 2);
+            state.x = -2.0 + Math.random() * 4;
+        }
+        else if (state.y >= 599)
+            state.gameover = true;
+    }
 }
 
 ctx.fillStyle = fc;//цвет заливки
