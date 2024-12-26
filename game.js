@@ -4,6 +4,11 @@ canv.width = 600;  //Задаем размер canvas 600x600 пикселов
 canv.height = 600;
 var ctx = canv.getContext('2d'); //получаем контекст холста и сохраняем его в переменную ctx
 
+var canv2 = document.getElementById('canv2');//Находим второй canvas
+canv2.width = 600;  //Задаем размер второго canvas 600x600 пикселов
+canv2.height = 600;
+var ctx2 = canv2.getContext('2d');
+
 var fc = 'rgb(0,0,50)';//цвет фона
 var bc = 'rgb(255,255,150)';//цвет шарика
 
@@ -69,6 +74,7 @@ function move() {
             //соответствовала скорости для данного уровня
             state.points++;  //увеличиваем очки на 1
             if (state.points % 10 == 0) state.level++; //если количество очков кратно 10, увеличиваем уровень
+            drawText();
         }
         else if (state.y >= 574) //если коснулись нижнего края, игра заканчивается
             state.gameover = true;
@@ -109,3 +115,11 @@ document.addEventListener('keydown', (e) => {//добавляем докумен
     }
 
 });
+
+function drawText() {
+    ctx2.clearRect(0, 0, 600, 100);
+    ctx2.fillStyle = "rgba(255,255,224,0.5)";
+    ctx2.font = "26px sans-serif";
+    ctx2.fillText('Очки: ' + state.points, 0, 30);
+    ctx2.fillText('Уровень: ' + state.level, 450, 30);
+}
