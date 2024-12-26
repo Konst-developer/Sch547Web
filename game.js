@@ -77,7 +77,7 @@ function move() {
             drawText();
         }
         else if (state.y >= 574) //если коснулись нижнего края, игра заканчивается
-            state.gameover = true;
+            gameOver();
     }
 }
 
@@ -97,6 +97,7 @@ function getDx(dy) { //функция возвращает x-составляю�
 ctx.fillStyle = fc;//цвет заливки
 ctx.fillRect(0, 0, 600, 600);//залитый прямоугольник - фон
 
+drawText();
 setInterval(move, 10); //вызываем функцию move каждые 10 милисекунд
 показатьРакетку(true); //показывем ракетку
 
@@ -122,4 +123,12 @@ function drawText() {
     ctx2.font = "26px sans-serif";
     ctx2.fillText('Очки: ' + state.points, 0, 30);
     ctx2.fillText('Уровень: ' + state.level, 450, 30);
+}
+
+function gameOver() {
+    state.gameover = true;
+    ctx2.fillStyle = "rgba(255,255,224,0.5)";
+    ctx2.font = "36px sans-serif";
+    var w = ctx2.measureText('Game Over!').width;
+    ctx2.fillText('Game Over!', 300 - w / 2, 300 + 18);
 }
