@@ -132,3 +132,15 @@ function gameOver() {
     var w = ctx2.measureText('Game Over!').width;
     ctx2.fillText('Game Over!', 300 - w / 2, 300 + 18);
 }
+
+function gameInit() {
+    state.x = 300;
+    state.y = 300;
+    state.dx = 0;
+    state.dy = 1.5;
+    state.cx = 300;
+    state.points = 0;
+    state.level = 1;
+    state.gamestart = true;
+    state.gameover = false;
+}
