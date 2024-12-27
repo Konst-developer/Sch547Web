@@ -94,12 +94,8 @@ function getDx(dy) { //функция возвращает x-составляю�
 
 //по сути игра начинается здесь, поскольку выше мы описывали функции, если их не вызывать, то сами они работать не будут.
 
-ctx.fillStyle = fc;//цвет заливки
-ctx.fillRect(0, 0, 600, 600);//залитый прямоугольник - фон
-
-drawText();
 setInterval(move, 10); //вызываем функцию move каждые 10 милисекунд
-показатьРакетку(true); //показывем ракетку
+gameInit();
 
 document.addEventListener('keydown', (e) => {//добавляем документу слушатель событий. "слушаем" нажатие клавиш
     if (state.gamestart && !state.gameover) { //если игра начата, но не закончена
@@ -141,6 +137,33 @@ function gameInit() {
     state.cx = 300;
     state.points = 0;
     state.level = 1;
-    state.gamestart = true;
+    state.gamestart = false;
     state.gameover = false;
+    ctx.fillStyle = fc;//цвет заливки
+    ctx.fillRect(0, 0, 600, 600);//залитый прямоугольник - фон
+    drawText();
+    показатьРакетку(true); //показывем ракетку
+}
+
+function btn1Click() {
+    var btn = document.getElementById('btn1');
+    if (btn.innerHTML == 'СТАРТ' && !state.gameover) {
+        state.gamestart = true;
+        btn.innerHTML = 'ПАУЗА';
+    }
+    else if (btn.innerHTML == 'ПАУЗА') {
+        state.gamestart = false;
+        btn.innerHTML = 'ВОЗОБНОВИТЬ';
+    }
+    else if (btn.innerHTML == 'ВОЗОБНОВИТЬ') {
+        state.gamestart = true;
+        btn.innerHTML = 'ПАУЗА';
+    }
+    else if (btn.innerHTML == 'СТАРТ' && state.gameover) {
+        gameInit();
+        state.gamestart = true;
+        btn.innerHTML = 'ПАУЗА';
+    }
+
+
 }

@@ -165,7 +165,6 @@ main {
 
 .game_container {
     width: 600px;
-    height: 600px;
     margin: 0 auto;
     border: #55a 1px solid;
     position: relative;
@@ -175,4 +174,15 @@ main {
     position: absolute;
     width: 600px;
     height: 600px;
+}
+
+#btn1 {
+    width: 200px;
+    font-size: 28px;
+}
+
+.game_btn_container {
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 600px;
 }
