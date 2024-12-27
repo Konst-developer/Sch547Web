@@ -127,6 +127,8 @@ function gameOver() {
     ctx2.font = "36px sans-serif";
     var w = ctx2.measureText('Game Over!').width;
     ctx2.fillText('Game Over!', 300 - w / 2, 300 + 18);
+    var btn = document.getElementById('btn1');
+    btn.innerHTML = 'СТАРТ';
 }
 
 function gameInit() {
@@ -141,6 +143,7 @@ function gameInit() {
     state.gameover = false;
     ctx.fillStyle = fc;//цвет заливки
     ctx.fillRect(0, 0, 600, 600);//залитый прямоугольник - фон
+    ctx2.clearRect(0, 0, 600, 600);
     drawText();
     показатьРакетку(true); //показывем ракетку
 }
