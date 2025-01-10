@@ -71,3 +71,12 @@ function compare($x, $y)
 compare(10, 20);
 compare(20, 10);
 compare(20, 20);
+
+function average($n1, $n2)
+{
+    return ($n1 + $n2) / 2;
+}
+
+echo average(5, 7) . "<br>";
+echo average(10, 20) . "<br>";
+echo average(1, 9) . "<br>";
