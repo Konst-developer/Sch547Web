@@ -80,3 +80,36 @@ function average($n1, $n2)
 echo average(5, 7) . "<br>";
 echo average(10, 20) . "<br>";
 echo average(1, 9) . "<br>";
+
+$arr = [2, 5, 'Яблоко', 'Комьютер', 2.25];
+echo $arr[3] . "<br>";
+
+for ($i = 0; $i < count($arr); $i++)
+    echo $i . ": " . $arr[$i] . ", ";
+echo "<br>";
+
+foreach ($arr as $value)
+    echo $value . ", ";
+echo "<br>";
+
+foreach ($arr as $key => $value)
+    echo $key . ": " . $value . ", ";
+echo "<br>";
+
+var_dump($arr);
+echo "<br>";
+?>
+
+<ol>
+    <?php
+    foreach ($arr as $value)
+        echo "<li>" . $value . "</li>"
+    ?>
+</ol>
+
+<select name="" id="">
+    <?php
+    foreach ($arr as $value)
+        echo "<option>" . $value . "</option>"
+    ?>
+</select>
