@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 echo "<h1>Hello World!!!</h1><br>";
 $a = 5;
 $b = 12;
@@ -88,15 +89,26 @@ for ($i = 0; $i < count($arr); $i++)
     echo $i . ": " . $arr[$i] . ", ";
 echo "<br>";
 
+$arr[] = "Монитор";
+$arr[10] = "Принтер";
+
 foreach ($arr as $value)
     echo $value . ", ";
 echo "<br>";
+
+array_push($arr, "Арбуз", "Клавиатура");
 
 foreach ($arr as $key => $value)
     echo $key . ": " . $value . ", ";
 echo "<br>";
 
+unset($arr[11]);
+
 var_dump($arr);
+echo "<br>";
+
+for ($i = 0; $i < count($arr); $i++)
+    echo $i . ": " . $arr[$i] . ", ";
 echo "<br>";
 ?>
 
