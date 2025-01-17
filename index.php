@@ -127,3 +127,65 @@ echo "<br>";
         echo "<option>" . $value . "</option>"
     ?>
 </select>
+
+<?php
+$asAr = [
+    'name' => 'Иванов Иван',
+    'email' => 'mail@mail.ru',
+    'password' => '12341234',
+];
+
+echo "<br>" . $asAr['name'] . "<br>";
+var_dump($asAr);
+echo "<br><br>";
+
+foreach ($asAr as $key => $val)
+    echo $key . ": " . $val . "<br>";
+
+$asAr = [
+    ['name' => 'Иванов Иван', 'email' => '111@mail.ru', 'password' => '123'],
+    ['name' => 'Петров Петр', 'email' => '222@mail.ru', 'password' => '456'],
+    ['name' => 'Петр Сергеевич', 'email' => '333@mail.ru', 'password' => '789'],
+];
+
+var_dump($asAr);
+echo "<br>";
+?>
+<table style="text-align:center; border-collapse:collapse;">
+    <tr>
+        <th>Имя</th>
+        <th>Email</th>
+        <th>Пароль</th>
+    </tr>
+    <?php
+    foreach ($asAr as $row) { ?>
+        <tr>
+            <td><?= $row['name'] ?></td>
+            <td><?= $row['email'] ?></td>
+            <td><?= $row['password'] ?></td>
+        </tr>
+
+    <?php } ?>
+</table>
+
+
+<div style="width:600px; margin: 0 auto; text-align:center;">
+    <?php
+    foreach ($asAr as $row) { ?>
+        <div style="display:flex; justify-content:space-between">
+            <div style="width:190px">
+                <?= $row['name'] ?>
+            </div>
+            <div style="width:190px">
+                <?= $row['email'] ?>
+            </div>
+            <div style="width:190px">
+                <?= $row['password'] ?>
+            </div>
+        </div>
+
+    <?php } ?>
+</div>
+
+<?php
+echo json_encode($asAr, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
