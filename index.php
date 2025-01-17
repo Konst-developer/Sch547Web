@@ -129,28 +129,29 @@ echo "<br>";
 </select>
 
 <?php
-$asAr = [
+$asAr = [ //создаем ассоциативный массив в формате ключ=>значение
     'name' => 'Иванов Иван',
     'email' => 'mail@mail.ru',
     'password' => '12341234',
 ];
 
-echo "<br>" . $asAr['name'] . "<br>";
-var_dump($asAr);
+echo "<br>" . $asAr['name'] . "<br>"; //выводим конкретный элемент массива по его ключу
+var_dump($asAr); //выводим полную информацию о массиве
 echo "<br><br>";
 
-foreach ($asAr as $key => $val)
+foreach ($asAr as $key => $val) //перебираем весь массив и выводим его содержимое на экран 
     echo $key . ": " . $val . "<br>";
 
-$asAr = [
+$asAr = [ //создаем многомерный массив (массив массивов)
     ['name' => 'Иванов Иван', 'email' => '111@mail.ru', 'password' => '123'],
     ['name' => 'Петров Петр', 'email' => '222@mail.ru', 'password' => '456'],
     ['name' => 'Петр Сергеевич', 'email' => '333@mail.ru', 'password' => '789'],
 ];
 
-var_dump($asAr);
+var_dump($asAr); //выводим на экран полную информацию о массиве
 echo "<br>";
 ?>
+<!-- Делаем табличку с содержимым массива -->
 <table style="text-align:center; border-collapse:collapse;">
     <tr>
         <th>Имя</th>
@@ -168,7 +169,7 @@ echo "<br>";
     <?php } ?>
 </table>
 
-
+<!-- делае еще одну табличку, используя только div'ы -->
 <div style="width:600px; margin: 0 auto; text-align:center;">
     <?php
     foreach ($asAr as $row) { ?>
@@ -189,3 +190,4 @@ echo "<br>";
 
 <?php
 echo json_encode($asAr, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+//вывели на экран массив в формате JSON
