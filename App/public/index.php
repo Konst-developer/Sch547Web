@@ -14,3 +14,10 @@ $request = new Request();
 
 $controllerName = $request->getControllerName() ?: 'shop';
 $actionName = $request->getActionName() ?: 'index';
+
+$controllerClass = CONTROLLER_NAMESPACE . ucfirst($controllerName) . "Controller";
+
+if (class_exists($controllerClass)) {
+    $controller = new $controllerClass();
+    $controller->runAction($actionName);
+} else echo "Контроллер " . $controllerClass . " не найден!";
