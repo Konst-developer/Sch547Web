@@ -1,6 +1,7 @@
 <?php
 
 use app\engine\Autoload;
+use app\engine\Render;
 use app\engine\Request;
 
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
@@ -18,6 +19,6 @@ $actionName = $request->getActionName() ?: 'index';
 $controllerClass = CONTROLLER_NAMESPACE . ucfirst($controllerName) . "Controller";
 
 if (class_exists($controllerClass)) {
-    $controller = new $controllerClass();
+    $controller = new $controllerClass(new Render());
     $controller->runAction($actionName);
 } else echo "Контроллер " . $controllerClass . " не найден!";
