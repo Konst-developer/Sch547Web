@@ -9,9 +9,11 @@
 </head>
 
 <body>
-    <?= $header ?>
-    <?= $content ?>
-    <?= $footer ?>
+    <div class="main_container">
+        <?= $header ?>
+        <?= $content ?>
+        <?= $footer ?>
+    </div>
 </body>
 
 </html>
