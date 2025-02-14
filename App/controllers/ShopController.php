@@ -6,6 +6,6 @@ class ShopController extends Controller
 {
     public function actionIndex()
     {
-        echo $this->render('index', []);
+        echo $this->render('index', ['name' => 'Konst']);
     }
 }
