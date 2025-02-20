@@ -43,7 +43,7 @@ class Db
         return $this->connection;
     }
 
-    private function query($sql, $params)
+    public function query($sql, $params)
     {
         $STH = $this->getConnection()->prepare($sql);
         $STH->execute($params);

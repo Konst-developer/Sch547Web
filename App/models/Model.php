@@ -10,7 +10,7 @@ abstract class Model implements IModel
     public function __set($name, $value)
     {
         if (array_key_exists($name, $this->props)) {
-            $this->name = $value;
+            $this->$name = $value;
             $this->props[$name] = true;
         }
     }
