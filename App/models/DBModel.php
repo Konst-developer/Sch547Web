@@ -61,5 +61,18 @@ abstract class DBModel extends Model
             $params[':' . $key] = $this->$key;
             $columns[] = $key;
         }
+        $params[':id'] = $this->id;
+        if (!empty($columns)) {
+            $par_str = '';
+            foreach ($columns as $value) {
+                $par_str .= ' ' . $value . '=:' . $value . ', ';
+            }
+            $par_str = substr($par_str, 0, -2) . ' ';
+        }
+        $sql = "UPDATE {$tableName} SET $par_str WHERE `id`=:id";
+        Db::getInstance()->execute($sql, $params);
+        foreach ($columns as $value)
+            $this->props[$value] = false;
+        return $this;
     }
 }
