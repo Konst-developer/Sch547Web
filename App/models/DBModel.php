@@ -51,4 +51,15 @@ abstract class DBModel extends Model
         $this->id = Db::getInstance()->lastInsertId();
         return $this;
     }
+
+    protected function update()
+    {
+        $columns = [];
+        $params = [];
+        $tableName = static::getTableName();
+        foreach ($this->props as $key => $value) {
+            $params[':' . $key] = $this->$key;
+            $columns[] = $key;
+        }
+    }
 }
