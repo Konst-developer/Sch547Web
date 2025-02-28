@@ -75,4 +75,19 @@ abstract class DBModel extends Model
             $this->props[$value] = false;
         return $this;
     }
+
+    public function delete()
+    {
+        $tableName = static::getTableName();
+        $sql = "DELETE FROM {$tableName} WHERE id=:id";
+        Db::getInstance()->execute($sql, [':id' => $this->id]);
+    }
+
+    public function save()
+    {
+        if ($this->id == null)
+            return $this->insert();
+        else
+            return $this->update();
+    }
 }
